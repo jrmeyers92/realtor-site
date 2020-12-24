@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Search from "./search/Search";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [searchCity, setSearchCity] = useState("");
+
+	const onSubmit = (term) => {
+		setSearchCity(term);
+		alert(searchCity);
+	};
+
+	return (
+		<div className='App'>
+			<Search onSubmit={onSubmit} />
+		</div>
+	);
 }
 
 export default App;
